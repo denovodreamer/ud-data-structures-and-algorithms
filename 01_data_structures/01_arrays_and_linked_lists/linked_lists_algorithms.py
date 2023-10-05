@@ -20,3 +20,24 @@ def max_sum_subarray(arr):
         max_sum = max(current_sum, max_sum)   
     
     return max_sum
+
+
+
+def nth_row_pascal(n):
+    """
+    :param: - n - index (0 based)
+    return - list() representing nth row of Pascal's triangle 
+    """
+    
+    row = [1]
+    if n == 0:
+        return row
+    
+    for i in range(n):
+        nth_row = [1]
+        for j in range(len(row)-1):
+            nth_row.append(row[j] + row[j+1])
+        nth_row.append(1)
+        row = nth_row
+        
+    return nth_row
