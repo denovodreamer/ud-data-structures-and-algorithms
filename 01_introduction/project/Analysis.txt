@@ -1,0 +1,43 @@
+
+
+#############################
+# Task 0
+#############################
+
+This is O(1). It has a constant order because getting the first and last elements
+is independent of the length of the files.
+
+
+
+#############################
+# Task 1
+#############################
+
+This is O(2n). There is a for loop that traverses each file one time.
+
+
+
+#############################
+# Task 2
+#############################
+
+This is O(n log n) because of the sorted Python function I used.
+
+
+
+#############################
+# Task 3
+#############################
+
+The worst case is O(n log n) because of the sorted function.
+
+
+#############################
+# Task 4
+#############################
+
+Same as task 3.
+
+
+
+
