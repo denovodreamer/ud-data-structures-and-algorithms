@@ -1,1 +1,3 @@
-# udacity_data_structures_algorithms
+# Data Structures and Algorithms
+
+Nanodegree from Udacity.
