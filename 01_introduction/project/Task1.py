@@ -26,17 +26,14 @@ def numbers_in(records, telephone_numbers):
         incoming_number = record[0]
         answering_number = record[1]
 
-        if incoming_number not in telephone_numbers:
-            telephone_numbers.append(incoming_number)
-
-        if answering_number not in telephone_numbers:
-            telephone_numbers.append(answering_number)
+        telephone_numbers.add(incoming_number)
+        telephone_numbers.add(answering_number)
 
     return telephone_numbers
 
 
 def count_numbers(texts, calls):
-    telephone_numbers = []
+    telephone_numbers = {}
 
     telephone_numbers = numbers_in(texts, telephone_numbers)
     telephone_numbers = numbers_in(calls, telephone_numbers)

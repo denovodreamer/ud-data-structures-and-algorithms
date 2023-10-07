@@ -44,17 +44,15 @@ def compute_longest_time(calls):
         total_durations = update_number(total_durations, calling_number, duration)
         total_durations = update_number(total_durations, receiving_number, duration)
 
-    total_durations = list(total_durations.items())
+    number = max(total_durations, key=lambda x: total_durations[x])
+    duration = total_durations[number]
 
-    total_durations = sorted(total_durations, key=lambda x: x[1], reverse=True)
-    longest_time_number = total_durations[0]
-
-    return longest_time_number
+    return number, duration
 
 
 if __name__ == "__main__":
-    number, total_time = compute_longest_time(calls)
-    print(f"{number} spent the longest time, {total_time} seconds, on the phone during September 2016.")
+    number, duration = compute_longest_time(calls)
+    print(f"{number} spent the longest time, {duration} seconds, on the phone during September 2016.")
 
 
 ##########################################

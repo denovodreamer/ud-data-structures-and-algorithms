@@ -118,7 +118,7 @@ def bangalore_calls(calls):
 
     codes = sorted(codes)
 
-    percentage = round(len(codes_bangalore)/number_of_bengalore_calls, 2)
+    percentage = round((len(codes_bangalore)/number_of_bengalore_calls)*100, 2)
 
     return codes, percentage
 
