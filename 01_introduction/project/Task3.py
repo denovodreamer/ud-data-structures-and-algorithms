@@ -74,14 +74,16 @@ def get_area_code(fixed_line_number):
     return area_code
 
 
-def get_prefix(mobile_number):
+def get_area_code_prefix(mobile_number):
 
     prefix = mobile_number.split(" ")[0]
 
     if prefix[0] not in ["7", "8", "9"] or "(" in mobile_number:
         return
 
-    return prefix
+    area_code = prefix[:-1]
+
+    return area_code
 
 
 def extract_number_code(number):
@@ -92,7 +94,7 @@ def extract_number_code(number):
     if number_type == "fixed_line":
         code = get_area_code(number)
     elif number_type == "mobile_number":
-        code = get_prefix(number)
+        code = get_area_code_prefix(number)
     elif number_type == "telemarketers":
         code = "140"
 
@@ -125,9 +127,10 @@ def bangalore_calls(calls):
 
 def find_all_codes():
     codes, percentage = bangalore_calls(calls)
+    print(len(calls))
     print("The numbers called by people in Bangalore have codes:")
-    for code in codes:
-        print(code)
+    # for code in codes:
+    #     print(code)
     print(f"{percentage} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
 
 
@@ -149,8 +152,8 @@ def test_extract_number_code():
 
 
 def test_get_prefix():
-    assert "97411" == get_prefix("97411 71155")
-    assert get_prefix("7411 71155") is None
+    assert "9741" == get_area_code_prefix("97411 71155")
+    assert get_area_code_prefix("7411 71155") is None
     print("Prefix passed!")
 
 
