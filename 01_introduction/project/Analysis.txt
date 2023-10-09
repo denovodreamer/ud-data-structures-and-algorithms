@@ -29,7 +29,7 @@ This is O(n log n) because of the sorted Python function I used.
 # Task 3
 #############################
 
-The worst case is O(n log n) because of the sorted function.
+The worst case is O(n**2) because inside the for loop there is a search inside a list (code not in codes).
 
 
 #############################
