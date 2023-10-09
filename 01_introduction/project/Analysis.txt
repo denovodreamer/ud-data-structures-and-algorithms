@@ -36,7 +36,7 @@ The worst case is O(n log n) because of the sorted function.
 # Task 4
 #############################
 
-Same as task 3.
+The worst case is O(n**2) because of the for loop inside the for loop.
 
 
 

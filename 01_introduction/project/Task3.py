@@ -129,8 +129,8 @@ def find_all_codes():
     codes, percentage = bangalore_calls(calls)
     print(len(calls))
     print("The numbers called by people in Bangalore have codes:")
-    # for code in codes:
-    #     print(code)
+    for code in codes:
+        print(code)
     print(f"{percentage} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
 
 

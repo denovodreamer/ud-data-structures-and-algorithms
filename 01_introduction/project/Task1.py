@@ -33,7 +33,7 @@ def numbers_in(records, telephone_numbers):
 
 
 def count_numbers(texts, calls):
-    telephone_numbers = {}
+    telephone_numbers = set()
 
     telephone_numbers = numbers_in(texts, telephone_numbers)
     telephone_numbers = numbers_in(calls, telephone_numbers)
