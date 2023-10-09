@@ -46,7 +46,7 @@ def possible_telemarketers(calls, texts):
         if is_telemarketer:
             telemarketers.add(calling_number)
 
-    print(len(telemarketers))
+    telemarketers = sorted(list(telemarketers))
 
     print("These numbers could be telemarketers: ")
     for telemarketer in telemarketers:
@@ -56,96 +56,3 @@ def possible_telemarketers(calls, texts):
 if __name__ == "__main__":
     possible_telemarketers(calls, texts)
 
-
-
-# def check_calls(calls):
-
-#     calling_numbers = set()
-
-#     for record in calls:
-#         calling_number = record[0]
-#         calling_numbers.add(calling_number)
-
-#     return calling_numbers
-
-
-# def check_texts(texts):
-
-#     numbers = set()
-
-#     for record in texts:
-#         sending_number = record[0]
-#         numbers.add(sending_number)
-
-#         receiving_number = record[1]
-#         numbers.add(receiving_number)
-
-#     return numbers
-
-
-# def check_telemarketers(calls, texts):
-
-#     calling_numbers = check_calls(calls)
-#     text_numbers = check_texts(texts)
-
-#     telemarketers = calling_numbers - text_numbers
-
-#     return telemarketers
-
-
-# def possible_telemarketers():
-
-#     telemarketers = check_telemarketers(calls, texts)
-
-#     print("These numbers could be telemarketers: ")
-#     for telemarketer in telemarketers:
-#         print(telemarketer)
-
-
-# if __name__ == "__main__":
-#     possible_telemarketers()
-
-
-
-
-# def check_number_type(number):
-
-#     number_type = None
-
-#     if number[0] == "(":         
-#         number_type = "fixed_line"
-#     elif " " in number:
-#         number_type = "mobile_number"
-#     elif number[:3] == "140":
-#         number_type = "telemarketers"
-    
-#     return number_type
-
-
-# def check_telemarketers(calls):
-
-#     telemarketers = []
-
-#     for record in calls:
-#         incoming_number = record[0]
-
-#         if ((check_number_type(incoming_number) == "telemarketers")
-#                 and (incoming_number not in telemarketers)):
-#             telemarketers.append(incoming_number)
-
-#     telemarketers = sorted(telemarketers)
-
-#     return telemarketers
-
-
-# def possible_telemarketers():
-
-#     telemarketers = check_telemarketers(calls)
-
-#     print("These numbers could be telemarketers: ")
-#     for telemarketer in telemarketers:
-#         print(telemarketer)
-
-
-# if __name__ == "__main__":
-#     possible_telemarketers()
