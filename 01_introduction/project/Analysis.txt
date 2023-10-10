@@ -36,8 +36,4 @@ The worst case is O(n**2) because inside the for loop there is a search inside a
 # Task 4
 #############################
 
-The worst case is O(n**2) because of the for loop inside the for loop.
-
-
-
-
+The worst case is O(n**2) because of the list search (calling_number in text_numbers) inside the for loop.

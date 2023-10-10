@@ -28,23 +28,35 @@ The list of numbers should be print out one per line in lexicographic order with
 
 def possible_telemarketers(calls, texts):
 
-    telemarketers = set()
+    # All numbers sending or receiving messages
+    text_numbers = []
+    for text_message in texts:
+        sending_number = text_message[0]
+        receiving_number = text_message[1]
 
+        text_numbers.append(sending_number)
+        text_numbers.append(receiving_number)
+
+    # All calling numbers and all receiving numbers
+    calling_numbers = []
+    receiving_numbers = []
     for call in calls:
         calling_number = call[0]
+        receiving_number = call[1]
 
-        is_telemarketer = True
+        calling_numbers.append(calling_number)
+        receiving_numbers.append(receiving_number)
 
-        for text_message in texts:
-            sending_number = text_message[0]
-            receiving_number = text_message[1]
+    # Select numbers that only call
+    telemarketers = []
+    for calling_number in calling_numbers:
+        if calling_number in text_numbers:
+            continue
+        
+        if calling_number in receiving_numbers:
+            continue
 
-            if calling_number == sending_number or calling_number == receiving_number:
-                is_telemarketer = False
-                break
-
-        if is_telemarketer:
-            telemarketers.add(calling_number)
+        telemarketers.append(calling_number)
 
     telemarketers = sorted(list(telemarketers))
 
