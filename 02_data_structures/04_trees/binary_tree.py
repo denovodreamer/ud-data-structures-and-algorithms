@@ -32,6 +32,12 @@ class Node:
     def has_right_child(self):
         return self.right is not None
     
+    def __repr__(self):
+        return f"Node({self.get_value()})"
+    
+    def __str__(self):
+        return f"Node({self.get_value()})"
+    
 
 
 class Tree():
