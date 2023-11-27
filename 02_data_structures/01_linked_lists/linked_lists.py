@@ -140,3 +140,33 @@ class LinkedList:
             
     def __repr__(self):
         return str([v for v in self])
+
+
+
+class DoubleNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        self.previous = None
+
+
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    
+    def append(self, value):
+        node = DoubleNode(value)
+        
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            node.previous = self.tail
+            self.tail.next = node
+            self.tail = node  
+        
+        return
+    
+    
