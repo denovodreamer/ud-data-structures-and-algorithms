@@ -10,14 +10,6 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def to_list(self):
-        out = []
-        node = self.head
-        while node:
-            out.append(node.value)
-            node = node.next
-        return out
-    
     def prepend(self, value):
         """ Prepend a node to the beginning of the list """
 
