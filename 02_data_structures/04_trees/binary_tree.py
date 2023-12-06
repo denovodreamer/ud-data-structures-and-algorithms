@@ -25,7 +25,6 @@ class Node:
     def get_right_child(self):
         return self.right
 
-
     def has_left_child(self):
         return self.left is not None
     
