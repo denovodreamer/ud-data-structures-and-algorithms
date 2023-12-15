@@ -96,7 +96,7 @@ class Group(object):
 def print_groups_tree(group: Group, level=0):
     # print(group.name)
     level += 1
-    out_group = "-"*level + f" {group.name} -> "
+    out_group = "\t"*level + f" {group.name} -> "
     for user in group.users:
         out_group += f"{user} "
     out_group += "\n"
@@ -107,7 +107,7 @@ def print_groups_tree(group: Group, level=0):
 
 
 
-def bfs(main_group: Group, user_id):
+def is_user_in_group(user_id, main_group: Group):
 
     queue = Queue()
     visit_order = []
@@ -155,14 +155,20 @@ if __name__ == "__main__":
     users = create_users(main_group, users)
 
     level += 1
-    child_group = Group(f"Name: {level}")
-    users = create_users(child_group, users)
-    main_group.add_group(child_group)
-
+    while len(users) > 0:
+        child_group = Group(f"Name: {level}")
+        users = create_users(child_group, users)
+        main_group.add_group(child_group)
 
     # Search user
-    visit_order = bfs(main_group, search_user)
+    visit_order = is_user_in_group(search_user, main_group)
     print(search_user in visit_order[-1].users)
 
+    print()
+    print("*"*60)
+    print("Tree")
     groups_tree = print_groups_tree(main_group, level=0)
+
     print(groups_tree)
+    print()
+    print("*"*60)
