@@ -37,15 +37,13 @@ class Queue:
     def is_empty(self):
         return self.num_elements == 0
         
-
-
-def to_list(queue):
-    elements = []
-    
-    current = queue.head
-    while current:
-        elements.append(current.value)
-        current = current.next
+    def to_list(self):
+        elements = []
         
-    return elements
+        current = self.head
+        while current:
+            elements.append(current.value)
+            current = current.next
+            
+        return elements
     
