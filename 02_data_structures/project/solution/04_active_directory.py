@@ -2,7 +2,6 @@
 
 
 
-
 class QueueNode:
     
     def __init__(self, value):
@@ -51,18 +50,6 @@ class Queue:
             
         return elements
 
-    # def __repr__(self):
-    #     if len(self.q) > 0:
-    #         s = "<enqueue here>\n_________________\n" 
-    #         s += "\n_________________\n".join([str(item) for item in self.q])
-    #         s += "\n_________________\n<dequeue here>"
-    #         return s
-    #     else:
-    #         return "<queue is empty>"
-
-
-
-
 
 
 class Group(object):
@@ -94,7 +81,7 @@ class Group(object):
 
 
 def print_groups_tree(group: Group, level=0):
-    # print(group.name)
+
     level += 1
     out_group = "\t"*level + f" {group.name} -> "
     for user in group.users:
@@ -107,7 +94,9 @@ def print_groups_tree(group: Group, level=0):
 
 
 
-def is_user_in_group(user_id, main_group: Group):
+def is_user_in_group(user_id, main_group):
+    if user_id is None:
+        return
 
     queue = Queue()
     visit_order = []
@@ -116,7 +105,7 @@ def is_user_in_group(user_id, main_group: Group):
 
     queue.enqueue(node)
     while(queue.size() > 0):
-        node: Group = queue.dequeue()
+        node = queue.dequeue()
         visit_order.append(node)
 
         users = node.get_users()
@@ -141,15 +130,12 @@ def create_users(group: Group, users):
     return users
 
 
-if __name__ == "__main__":
-
+def test_user_is_in_group():
     n_users = 10
     users = [f"{i}" for i in range(n_users)]
     search_user = users[-1]
 
-    n_levels = 2
-
-    # Create random active directory
+    # Create group
     level = 1
     main_group = Group(f"Name: {level}")
     users = create_users(main_group, users)
@@ -162,13 +148,54 @@ if __name__ == "__main__":
 
     # Search user
     visit_order = is_user_in_group(search_user, main_group)
-    print(search_user in visit_order[-1].users)
+    assert search_user in visit_order[-1].users
 
-    print()
-    print("*"*60)
-    print("Tree")
-    groups_tree = print_groups_tree(main_group, level=0)
 
-    print(groups_tree)
-    print()
-    print("*"*60)
+def test_user_is_not_in_group():
+    n_users = 10
+    users = [f"{i}" for i in range(n_users)]
+    search_user = "99"
+
+    # Create group
+    level = 1
+    main_group = Group(f"Name: {level}")
+    users = create_users(main_group, users)
+
+    level += 1
+    while len(users) > 0:
+        child_group = Group(f"Name: {level}")
+        users = create_users(child_group, users)
+        main_group.add_group(child_group)
+
+    # Search user
+    visit_order = is_user_in_group(search_user, main_group)
+    print(visit_order)
+    assert search_user not in visit_order[-1].users
+
+
+def test_null():
+    n_users = 10
+    users = [f"{i}" for i in range(n_users)]
+    search_user = None
+
+    # Create group
+    level = 1
+    main_group = Group(f"Name: {level}")
+    users = create_users(main_group, users)
+
+    level += 1
+    while len(users) > 0:
+        child_group = Group(f"Name: {level}")
+        users = create_users(child_group, users)
+        main_group.add_group(child_group)
+
+    # Search null user
+    assert is_user_in_group(search_user, main_group) is None
+
+if __name__ == "__main__":
+    test_user_is_in_group()
+    test_user_is_not_in_group()
+    test_null()
+
+
+    
