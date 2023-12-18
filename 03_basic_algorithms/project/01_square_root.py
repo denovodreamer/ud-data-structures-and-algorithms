@@ -39,7 +39,7 @@ def sqrt(target):
     # Then initial range goes from 1 to the target
     start = 1
     end = target
-    middle = (start + end)//2  
+    middle = (start + end)//2
 
     while start < middle:
 
