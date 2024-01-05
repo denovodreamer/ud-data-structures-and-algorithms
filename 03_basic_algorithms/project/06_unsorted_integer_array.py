@@ -8,6 +8,12 @@ def get_min_max(array):
     Args:
        ints(list): list of integers containing one or more integers
     """
+    if array is None:
+        return
+
+    if len(array) == 0:
+        return []
+
     min = array[0]
     max = array[0]
 
@@ -20,6 +26,16 @@ def get_min_max(array):
     return min, max
 
 
+def test_null():
+    array = None
+    assert get_min_max(array) is None
+
+
+def test_empty():
+    array = []
+    assert len(get_min_max(array)) == 0
+
+
 def test_random():
     ### Example Test Case of Ten Integers
     import random
@@ -27,10 +43,12 @@ def test_random():
     l = [i for i in range(0, 10)]  # a list containing 0 - 9
     random.shuffle(l)
 
-    print ("Pass" if ((0, 9) == get_min_max(l)) else "Fail")
+    assert (0, 9) == get_min_max(l)
 
 
 if __name__ == "__main__":
+    test_null()
+    test_empty()
     test_random()
 
 
