@@ -1,39 +1,11 @@
 
 
-def sqrtSearch(low, high, N) :
-
-    # If the range is still valid
-    if (low <= high) :
-
-        # Find the mid-value of the range
-        mid = (low + high) // 2;
-
-        # Base Case
-        if ((mid * mid <= N) and ((mid + 1) * (mid + 1) > N)) :
-            return mid;
-
-        # Condition to check if the
-        # left search space is useless
-        elif (mid * mid < N) :
-            return sqrtSearch(mid + 1, high, N);
-
-        else :
-            return sqrtSearch(low, mid - 1, N);
-
-    return low;
-
-
 def sqrt(target):
     """
-    Calculate the floored square root of a number
-
-    Args:
-       number(int): Number to find the floored squared root
-    Returns:
-       int: Floored Square Root
+    Computes the floored square root of a number.
     """
 
-    if target is None:
+    if target is None or target < 0:
         return
 
     # Then initial range goes from 1 to the target
@@ -83,7 +55,15 @@ def test_null():
     target = None
     assert sqrt(target) is None
 
+def test_negative():
+    """
+    Tests the edge case when the input is negative.
+    """
+    target = -5
+    assert sqrt(target) is None
+
 if __name__ == "__main__":
     test_integer_square_root()
     test_integer_square_root()
     test_null()
+    test_negative()

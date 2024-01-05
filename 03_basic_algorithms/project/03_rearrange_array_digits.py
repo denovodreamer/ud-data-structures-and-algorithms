@@ -41,6 +41,9 @@ def mergesort(items):
 
 def rearrange_digits(arr):
 
+    if arr is None or len(arr) == 0:
+        return
+
     arr_sorted = mergesort(arr)
 
     number_1 = 0
@@ -65,6 +68,18 @@ def test_2():
     assert rearrange_digits(arr) == [964, 852]
 
 
+def test_null():
+    arr = None
+    assert rearrange_digits(arr) is None
+
+
+def test_empty():
+    arr = []
+    assert rearrange_digits(arr) is None
+
+
 if __name__ == "__main__":
     test_1()
     test_2()
+    test_null()
+    test_empty()
