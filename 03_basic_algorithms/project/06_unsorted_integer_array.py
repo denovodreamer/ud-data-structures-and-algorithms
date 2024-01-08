@@ -4,9 +4,6 @@
 def get_min_max(array):
     """
     Return a tuple(min, max) out of list of unsorted integers.
-
-    Args:
-       ints(list): list of integers containing one or more integers
     """
     if array is None:
         return
