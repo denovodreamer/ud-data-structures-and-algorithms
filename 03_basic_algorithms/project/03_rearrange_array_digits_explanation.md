@@ -10,4 +10,6 @@ Since the aim is to split the array into two number that maximize the sum, this 
 
 The input has n elements, which corresponds to the array length.
 
-For the time efficiency, the Quick Sort takes O(n log n), and the extraction of the two numbers takes linear time from the one time traversal of the array. The resulting time complexity is then O(n log n).
+For the time efficiency, the Quick Sort takes O(n log n), and the extraction of the two numbers takes linear time O(n) from the one time traversal of the array. The resulting time complexity in the end is O(n log n).
+
+For space complexity, there is only a list of two numbers created in the end, so the efficiency is O(1).

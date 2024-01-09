@@ -19,7 +19,7 @@ def merge(left, right):
     return merged
 
 
-def mergesort(items):
+def merge_sort(items):
 
     if len(items) <= 1:
         return items
@@ -30,8 +30,8 @@ def mergesort(items):
     right = items[mid:]
 
     # Conquer
-    left = mergesort(left)
-    right = mergesort(right)
+    left = merge_sort(left)
+    right = merge_sort(right)
 
     # Combine
     merge_sort = merge(left, right)
@@ -44,7 +44,7 @@ def rearrange_digits(arr):
     if arr is None or len(arr) == 0:
         return
 
-    arr_sorted = mergesort(arr)
+    arr_sorted = merge_sort(arr)
 
     number_1 = 0
     number_2 = 0

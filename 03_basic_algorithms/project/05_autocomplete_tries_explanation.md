@@ -8,5 +8,8 @@ After building the trie, it will act as a dictionary. Given a string, it returns
 
 **Efficiency Analysis:**
 
-The time complexity for the autocompletion feature is O(n), with n the number of characters in the string.
+The input string to autocomplete has n characters.
 
+Both insert and find a word it takes linear time O(n), since there is a complete string traversal.
+
+For the space complexity, it will be less than the total number of words in the trie, which depends on word overlapping for the beggining of the corresponding strings. That's the main advantage of using tries.
