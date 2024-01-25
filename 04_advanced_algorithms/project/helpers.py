@@ -1,6 +1,6 @@
 import networkx as nx
 import pickle
-import plotly.plotly as py
+import chart_studio.plotly as py
 import random
 from plotly.graph_objs import *
 from plotly.offline import init_notebook_mode, plot, iplot
@@ -84,7 +84,7 @@ def show_map(M, start=None, goal=None, path=None):
                     showlegend=False,
                     hovermode='closest',
                     margin=dict(b=20,l=5,r=5,t=40),
-                   
+
                     xaxis=XAxis(showgrid=False, zeroline=False, showticklabels=False),
                     yaxis=YAxis(showgrid=False, zeroline=False, showticklabels=False)))
 

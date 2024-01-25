@@ -1,11 +1,10 @@
 
 
 
-
 class PriorityQueueNode:
-    def __init__(self, node):
-        self.node = node
-        self.priority = node.frequency
+    def __init__(self, state):
+        self.state = state
+        self.priority = state.total_cost
         self.next = None
         self.previous = None
 
@@ -55,6 +54,17 @@ class PriorityQueue:
 
             current_node = current_node.next
 
+    def get(self, intersection):
+
+        node = self.head
+
+        while node:
+            state = node.state
+            if state.intersection == intersection:
+                return node
+
+            node = node.next
+        return
 
     def pop(self):
 

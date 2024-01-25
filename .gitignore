@@ -1,5 +1,6 @@
 .DS_Store
 .ipynb_checkpoints
+__pycache__
 
 01_introduction/project/submission
 01_introduction/project/submission.zip
